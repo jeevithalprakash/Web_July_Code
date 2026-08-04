@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeevitha L Prakash | Portfolio</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==========================================
+       DAY 5: UNIVERSAL SELECTOR & THEME VARIABLES
+       ========================================== */
+    :root {
+      --bg-primary: #0a0f1d;
+      --bg-secondary: #111827;
+      --bg-card: rgba(30, 41, 59, 0.7);
+      --accent-primary: #6366f1;
+      --accent-secondary: #3b82f6;
+      --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      --radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ==========================================
+       DAY 6: TYPOGRAPHY & GENERAL STYLING
+       ========================================== */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* DAY 7: Box Model (Padding/Margin) */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title span {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: #fff;
+      box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px 0 rgba(99, 102, 241, 0.55);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent-primary);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      background: rgba(99, 102, 241, 0.15);
+      color: #818cf8;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      margin-right: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ==========================================
+       DAY 1 & DAY 5: HEADER & DESCENDANT SELECTORS
+       ========================================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(10, 15, 29, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    /* NAVBAR LOGO & AVATAR STYLING */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between photo and text */
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logo-img {
+  width: 35px;          /* Size of the icon in navbar */
+  height: 35px;         /* Equal width and height */
+  border-radius: 50%;   /* Makes it round */
+  object-fit: cover;    /* Prevents image distortion */
+  border: 2px solid var(--accent-primary); /* Stylish accent border */
+}
+
+    .logo span {
+      color: var(--accent-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    /* ==========================================
+       DAY 8: HERO SECTION & KEYFRAME ANIMATION
+       ========================================== */
+    .hero {
+      padding-top: 160px;
+      padding-bottom: 100px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero-subtitle {
+      color: var(--accent-primary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 0.9rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-description {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 680px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================
+       DAY 8: CSS GRID (SKILLS, PROJECTS, SOFT SKILLS)
+       ========================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: var(--transition);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .skill-icon {
+      font-size: 2rem;
+      color: var(--accent-primary);
+      margin-bottom: 1rem;
+    }
+
+    .skill-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================
+       WORK EXPERIENCE TIMELINE
+       ========================================== */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 60px;
+      margin-bottom: 2.5rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 11px;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      border: 3px solid var(--accent-primary);
+    }
+
+    .timeline-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+    }
+
+    .timeline-role {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .timeline-company {
+      color: var(--accent-secondary);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .timeline-bullets {
+      padding-left: 1.2rem;
+    }
+
+    .timeline-bullets li {
+      list-style-type: disc;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ==========================================
+       DAY 7 & 8: FEATURED & REGULAR PROJECT CARDS
+       ========================================== */
+    .projects-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .featured-project {
+      background: var(--bg-card);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-tag {
+      position: absolute;
+      top: 20px;
+      right: -35px;
+      background: var(--accent-gradient);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.25rem 2.5rem;
+      transform: rotate(45deg);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    /* ==========================================
+       DAY 4: TABLES & EDUCATION / CERTIFICATIONS
+       ========================================== */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .list-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+    }
+
+    .list-item {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .list-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background-color: var(--bg-card);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    table th, table td {
+      padding: 0.85rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+
+    table th {
+      background-color: rgba(99, 102, 241, 0.15);
+      color: var(--accent-primary);
+    }
+
+    /* ==========================================
+       DAY 2 & DAY 3: CONTACT FORM & INPUT TAGS
+       ========================================== */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      background-color: var(--bg-card);
+      padding: 2rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+    }
+
+    .contact-form label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: -0.5rem;
+    }
+
+    .contact-form input, 
+    .contact-form select, 
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.85rem;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .contact-form input:focus, 
+    .contact-form select:focus, 
+    .contact-form textarea:focus {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 0 2rem;
+      text-align: center;
+    }
+
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.5rem;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2.5rem; }
+      .nav-links { display: none; }
+      .timeline::before { left: 10px; }
+      .timeline-item { padding-left: 35px; }
+      .timeline-dot { left: 1px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- DAY 1 & 4: SEMANTIC HEADER & LINK TAGS -->
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="logo">
+        <img src="profile.jpeg" alt="Jeevitha L Prakash" class="logo-img">
+      Jeevitha<span>.dev</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- DAY 8: HERO SECTION WITH ANIMATIONS -->
+  <section id="about" class="hero">
+    <div class="container hero-content">
+      <p class="hero-subtitle">Information Science & Engineering Professional</p>
+      <h1 class="hero-title">Hi, I'm Jeevitha L Prakash.</h1>
+      <p class="hero-description">
+        Motivated Information Science graduate with expertise in AI, Machine Learning, Data Science, and Software Development. Skilled in Python, Java, C, SQL, and Web Technologies with a strong foundation in Data Analysis, Automation Testing, and Full-Stack Development.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Get In Touch</a>
+        <a href="https://www.linkedin.com/in/jeevitha-l-prakash-b0b0a9336" target="_blank" class="btn btn-outline"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/Jeevitha L Prakash" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 8: TECHNICAL EXPERTISE (CSS GRID) -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title">Technical <span>Expertise</span></h2>
+      <div class="skills-grid">
+        
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+          <h3 class="skill-title">Programming</h3>
+          <p class="skill-desc">Proficient in Python, Java, and C programming languages with practical application experience across various domain projects.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3 class="skill-title">AI & Machine Learning</h3>
+          <p class="skill-desc">Experience with NLP, Mediapipe, LLM frameworks, Gemini AI, and Computer Vision (CNNs) implementations.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-globe"></i></div>
+          <h3 class="skill-title">Web Technologies</h3>
+          <p class="skill-desc">Skilled in HTML, CSS, JavaScript, React, Node.js, Flask, and Angular for creating responsive web applications.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+          <h3 class="skill-title">Database Management</h3>
+          <p class="skill-desc">Proficient in SQL and DBMS concepts with practical experience designing and implementing database solutions.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-vial-circle-check"></i></div>
+          <h3 class="skill-title">Automation & Testing</h3>
+          <p class="skill-desc">Skilled in Selenium for automated testing, creating automated test scripts, and web browser navigation testing.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <h3 class="skill-title">Tools & Environments</h3>
+          <p class="skill-desc">Experienced with Google Colab, VS Code, and development tools for efficient coding, data analysis, and collaboration.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK EXPERIENCE SECTION (TIMELINE) -->
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section-title">Work <span>Experience</span></h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="timeline-role">Data Science Intern</h3>
+            <p class="timeline-company">TIE (Startup)</p>
+            <p class="timeline-date"><i class="fa-regular fa-calendar"></i> Nov 2024 – May 2025</p>
+            <ul class="timeline-bullets">
+              <li>Developed data-driven solutions for business analytics and forecasting.</li>
+              <li>Applied machine learning models to extract actionable business insights from large datasets.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="timeline-role">AI/ML Intern</h3>
+            <p class="timeline-company">Scontinent Technologies Pvt Ltd (Startup)</p>
+            <p class="timeline-date"><i class="fa-regular fa-calendar"></i> Sept 2024 – Nov 2024</p>
+            <ul class="timeline-bullets">
+              <li>Built an AI-based Video Interview Platform using LLM and Machine Learning techniques.</li>
+              <li>Assisted in integrating NLP algorithms for real-time speech and sentiment analysis feedback.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="timeline-role">Machine Learning Intern</h3>
+            <p class="timeline-company">Tech Fortune Technologies (Startup)</p>
+            <p class="timeline-date"><i class="fa-regular fa-calendar"></i> Oct 2023 – Nov 2023</p>
+            <ul class="timeline-bullets">
+              <li>Developed a Super Store Sales Prediction Model to analyze and forecast commercial sales trends.</li>
+              <li>Utilized Google Colab for automated data cleaning, processing, and visual plotting.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SHOWCASE SECTION -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Relevant <span>Projects</span></h2>
+      <div class="projects-container">
+
+        <!-- Featured Project 1 -->
+        <div class="featured-project">
+          <span class="featured-tag">FINAL YEAR</span>
+          <span class="badge">Major Project</span>
+          <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">AI-Based Mock Interview System</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1rem;">
+            Designed and engineered an AI-powered interview platform to simulate real-time job interviews using AI, ML, NLP, Mediapipe, Web Development, and DBMS technologies.
+          </p>
+          <div style="margin-bottom: 1rem;">
+            <span class="badge">AI / ML</span>
+            <span class="badge">NLP</span>
+            <span class="badge">Mediapipe</span>
+            <span class="badge">Web Dev</span>
+            <span class="badge">DBMS</span>
+          </div>
+          <ul style="color: var(--text-muted); font-size: 0.95rem; padding-left: 1.2rem;">
+            <li>Real-time speech recognition and performance analysis.</li>
+            <li>Automated feedback mechanisms for enhanced candidate interview learning.</li>
+          </ul>
+        </div>
+
+        <!-- Featured Project 2 -->
+        <div class="featured-project">
+          <span class="badge">Healthcare AI</span>
+          <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">SmartSpoon: AI-Powered Dietary Management for Personalized Nutrition</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1rem;">
+            An intelligent nutrition system incorporating Computer Vision and Natural Language Processing for dietary management and food analysis.
+          </p>
+          <div style="margin-bottom: 1rem;">
+            <span class="badge">CNNs</span>
+            <span class="badge">Computer Vision</span>
+            <span class="badge">NLP</span>
+            <span class="badge">React</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">Flask</span>
+            <span class="badge">Angular</span>
+          </div>
+          <ul style="color: var(--text-muted); font-size: 0.95rem; padding-left: 1.2rem;">
+            <li>Built an AI-based food recognition system using Convolutional Neural Networks (CNNs) for food identification and salt content prediction.</li>
+            <li>Implemented sentiment analysis using NLP for processing user feedback to improve personalization algorithms.</li>
+          </ul>
+        </div>
+
+        <!-- Additional Academic Projects -->
+        <div class="projects-grid">
+          <div class="project-card">
+            <div>
+              <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Farm Management System</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                Web platform built using HTML, CSS, and PHP providing crop, vegetable, and fruit details to farmers, enhancing agricultural decision-making.
+              </p>
+            </div>
+            <div>
+              <span class="badge">PHP</span> <span class="badge">HTML/CSS</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Online Price Comparison Website</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                Created a web tool using HTML, CSS, and Web Scraping to compare prices across multiple e-commerce platforms for consumer benefit.
+              </p>
+            </div>
+            <div>
+              <span class="badge">Web Scraping</span> <span class="badge">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Reliance Digital Automation Testing</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                Automated the testing process for product search, navigation, and checkout purchase flow using Selenium to improve reliability.
+              </p>
+            </div>
+            <div>
+              <span class="badge">Selenium</span> <span class="badge">Software Testing</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 4: EDUCATION & CERTIFICATIONS (WITH TABLES & LISTS) -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="two-col-grid">
+        
+        <!-- Education Section -->
+        <div>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Education</h2>
+          <div class="list-card">
+            
+            <div class="list-item">
+              <h4 style="font-size: 1.1rem; font-weight: 600;">Bachelor of Engineering (B.E.)</h4>
+              <p style="color: var(--accent-primary); font-size: 0.9rem;">Information Science & Engineering</p>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">East West Institute of Technology, Bangalore</p>
+              <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.85rem;">
+                <span>CGPA: <strong>8.16 / 8.6</strong></span>
+                <span style="color: var(--text-muted);">Dec 2021 – May 2025</span>
+              </div>
+            </div>
+
+            <!-- DAY 4: HTML Table Concept -->
+            <h4 style="font-size: 1rem; margin: 1rem 0 0.5rem;">Schooling Summary</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Level</th>
+                  <th>Institution</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pre-University (PCMB)</td>
+                  <td>Sri Chaitanya PU College</td>
+                  <td>79.67%</td>
+                </tr>
+                <tr>
+                  <td>Secondary (CBSE)</td>
+                  <td>Sri Vidya Kendra Smart School</td>
+                  <td>67.7%</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <!-- Certifications & Soft Skills -->
+        <div>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Certifications & Skills</h2>
+          <div class="list-card">
+            
+            <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.8rem;">Certifications</h4>
+            <ul style="margin-bottom: 1.5rem;">
+              <li style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem;">✔ <strong>AI / ML:</strong> Scontinent Technology Pvt Ltd</li>
+              <li style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem;">✔ <strong>Java Programming:</strong> Ethnotech Academic Solutions</li>
+              <li style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem;">✔ <strong>Data Science with Python:</strong> Ethnotech Academic Solutions</li>
+              <li style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem;">✔ <strong>Angular Development:</strong> Infosys Springboard</li>
+              <li style="color: var(--text-muted); font-size: 0.9rem;">✔ <strong>Automation Testing on Selenium:</strong> Subramanya Education Society</li>
+            </ul>
+
+            <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.8rem;">Soft Skills</h4>
+            <div style="margin-bottom: 1rem;">
+              <span class="badge">Strong Communication</span>
+              <span class="badge">Teamwork</span>
+              <span class="badge">Leadership</span>
+              <span class="badge">Time Management</span>
+            </div>
+
+            <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Languages</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">English, Kannada, Hindi</p>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 2 & 3: FORM & CONTACT SECTION -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <h2 class="section-title">Get In <span>Touch</span></h2>
+      
+      <div class="contact-wrapper">
+        
+        <!-- DAY 2 & 3: HTML Form with Input, Select & Textarea -->
+        <form class="contact-form">
+          <div>
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="John Doe" required>
+          </div>
+          
+          <div>
+            <label for="email">Your Email</label>
+            <input type="email" id="email" placeholder="john@example.com" required>
+          </div>
+
+          <div>
+            <label for="inquiry">Inquiry Type</label>
+            <select id="inquiry">
+              <option value="hire">Full-Time Hire / Job Opportunity</option>
+              <option value="project">Project Collaboration</option>
+              <option value="general">General Query</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder="How can I help you?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+        </form>
+
+        <!-- Contact Info Details -->
+        <div style="text-align: left; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem;">
+          <div>
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Contact Information</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              Willing to relocate and open to learning new technologies. Feel free to connect via email or phone.
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.8rem; color: var(--text-muted);">
+            <div><i class="fa-solid fa-location-dot" style="color: var(--accent-primary); width: 20px;"></i> Bangalore, India</div>
+            <div><i class="fa-solid fa-phone" style="color: var(--accent-primary); width: 20px;"></i> +91 8660164319</div>
+            <div><i class="fa-solid fa-envelope" style="color: var(--accent-primary); width: 20px;"></i> jeevithachaggu246@gmail.com</div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+            <a href="https://www.linkedin.com/in/jeevitha-l-prakash-b0b0a9336" target="_blank" class="btn btn-outline"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/Jeevitha L Prakash" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        &copy; 2026 Jeevitha L Prakash. Built with clean HTML5 & CSS3.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
