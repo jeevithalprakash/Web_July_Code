@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Glass — Next-Gen Spatial Eyewear</title>
+  <meta name="description" content="Aura Glass — Ultra-lightweight 4K AR eyewear for hands-free productivity and real-time navigation.">
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+
+  <!-- Tailwind CSS Play CDN (Optimized script with JIT compilation) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    /* Custom Layout Stability Fixes */
+    .img-container {
+      aspect-ratio: 4 / 3;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-black">
+
+  <!-- 1. NAVIGATION BAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+    <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between" aria-label="Main Navigation">
+      <!-- Logo -->
+      <a href="#" onclick="showLandingView()" class="flex items-center gap-2 text-xl font-bold tracking-wider text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-md px-1" aria-label="Aura Glass Home">
+        <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+        <span>AURA<span class="text-emerald-400">GLASS</span></span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#features" onclick="showLandingView()" class="hover:text-emerald-400 transition-colors">Features</a>
+        <a href="#benefits" onclick="showLandingView()" class="hover:text-emerald-400 transition-colors">Benefits</a>
+        <a href="#reviews" onclick="showLandingView()" class="hover:text-emerald-400 transition-colors">Reviews</a>
+        <a href="#pricing" onclick="showLandingView()" class="hover:text-emerald-400 transition-colors">Pricing</a>
+      </div>
+
+      <!-- Desktop CTA -->
+      <div class="hidden md:block">
+        <button onclick="showCheckoutSection()" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-500 text-slate-950 font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-emerald-500/20 focus:ring-2 focus:ring-emerald-400">
+          Pre-Order Now
+        </button>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white p-2 focus:ring-2 focus:ring-emerald-500 rounded-lg" aria-label="Toggle Navigation Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-3 text-slate-300">
+      <a href="#features" onclick="toggleMobileMenu(); showLandingView();" class="block hover:text-emerald-400">Features</a>
+      <a href="#benefits" onclick="toggleMobileMenu(); showLandingView();" class="block hover:text-emerald-400">Benefits</a>
+      <a href="#reviews" onclick="toggleMobileMenu(); showLandingView();" class="block hover:text-emerald-400">Reviews</a>
+      <a href="#pricing" onclick="toggleMobileMenu(); showLandingView();" class="block hover:text-emerald-400">Pricing</a>
+      <button onclick="toggleMobileMenu(); showCheckoutSection();" class="w-full py-2.5 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-500 text-slate-950 font-bold text-sm">Pre-Order Now</button>
+    </div>
+  </header>
+
+  <!-- MAIN LANDING PAGE CONTENT -->
+  <div id="landing-content">
+    
+    <!-- 2. HERO SECTION -->
+    <section class="pt-36 pb-20 md:pt-48 md:pb-32 max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold tracking-wide uppercase">
+            Spatial Computing 2.0
+          </div>
+          <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            See the Future in <span class="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">Crystal Clear</span> AR.
+          </h1>
+          <p class="text-slate-300 text-base md:text-lg leading-relaxed">
+            Lightweight. Wireless. Powerful. Aura Glass blends digital intelligence effortlessly into your vision without hiding the real world.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+            <a href="#pricing" class="px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-400 to-cyan-500 text-slate-950 font-bold text-center hover:opacity-90 transition-all shadow-xl shadow-emerald-500/20">
+              Buy Now — $499
+            </a>
+            <a href="#features" class="px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-semibold text-center transition-all">
+              Explore Features
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Image (Optimized LCP & Dimensions) -->
+        <div class="relative">
+          <div class="bg-slate-900 border border-slate-800 rounded-3xl p-2 shadow-2xl img-container overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=600&q=60" 
+                 width="600" 
+                 height="450" 
+                 loading="eager" 
+                 decoding="async" 
+                 fetchpriority="high"
+                 alt="Aura Glass Smart AR Eyewear Product" 
+                 class="w-full h-full object-cover rounded-2xl">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FEATURES SECTION (Grid Layout) -->
+    <section id="features" class="py-20 bg-slate-900/50 border-y border-slate-800">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+          <h2 class="text-3xl md:text-4xl font-bold text-white">Engineered for Visionaries</h2>
+          <p class="text-slate-300">Packed with industry-leading hardware into an ultra-sleek 45g frame.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2">4K Micro-OLED Displays</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">Crisp 4K resolution per eye with unmatched contrast and ultra-high brightness.</p>
+          </div>
+
+          <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-cyan-400 mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2">Neural Engine Chipset</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">On-device real-time spatial mapping and hand-tracking latency under 12ms.</p>
+          </div>
+
+          <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2">All-Day Battery Life</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">Up to 8 hours of active spatial computing with magnetic rapid-charging pack.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. BENEFITS SECTION (Flexbox Layout) -->
+    <section id="benefits" class="py-20 max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <h2 class="text-3xl md:text-4xl font-bold text-white">Why Choose Aura Glass?</h2>
+        <p class="text-slate-300">Experience effortless synergy between daily life and immersive intelligence.</p>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-8 items-stretch">
+        <div class="flex-1 p-8 rounded-2xl bg-slate-900 border border-slate-800">
+          <h3 class="text-2xl font-bold text-white mb-4">Hands-Free Productivity</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">Project multiple virtual monitor screens anywhere you go. Code, design, and take calls seamlessly on the go.</p>
+        </div>
+
+        <div class="flex-1 p-8 rounded-2xl bg-slate-900 border border-slate-800">
+          <h3 class="text-2xl font-bold text-white mb-4">Heads-Up Live Navigation</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">Never look down at your phone again. Live turn-by-turn directional arrows light up right on city streets.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. TESTIMONIALS / REVIEWS SECTION -->
+    <section id="reviews" class="py-20 bg-slate-900/50 border-y border-slate-800">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-white">Reviewed by Tech Leaders</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+            <p class="text-slate-200 text-sm italic">"The build quality and display resolution completely redefined my remote work setup."</p>
+            <div>
+              <h3 class="text-white font-semibold text-sm">Alex Rivera</h3>
+              <p class="text-xs text-slate-400">Senior Product Designer</p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+            <p class="text-slate-200 text-sm italic">"Feels lighter than a standard pair of sunglasses, yet handles real-time spatial navigation."</p>
+            <div>
+              <h3 class="text-white font-semibold text-sm">Sarah Jenkins</h3>
+              <p class="text-xs text-slate-400">Tech Reviewer & Creator</p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+            <p class="text-slate-200 text-sm italic">"Sleek dark design aesthetics and top-notch hardware ergonomics. Incredible product."</p>
+            <div>
+              <h3 class="text-white font-semibold text-sm">David Chen</h3>
+              <p class="text-xs text-slate-400">Software Architect</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PRICING SECTION -->
+    <section id="pricing" class="py-20 max-w-7xl mx-auto px-6">
+      <div class="p-10 md:p-16 rounded-3xl bg-slate-900 border border-emerald-500/40 text-center relative overflow-hidden">
+        <div class="max-w-2xl mx-auto space-y-6">
+          <h2 class="text-3xl md:text-5xl font-extrabold text-white">Step into Spatial Vision Today</h2>
+          <p class="text-slate-300">Includes Aura Glass, Magnetic Power Pack, Rx Adapter, and 2-Year Warranty.</p>
+          <div class="text-4xl md:text-5xl font-black text-white">$499 <span class="text-base text-slate-400 font-normal">/ regular $699</span></div>
+          <div>
+            <button onclick="showCheckoutSection()" class="px-10 py-4 rounded-xl bg-gradient-to-r from-emerald-400 to-cyan-500 text-slate-950 font-bold transition-all shadow-xl shadow-emerald-500/20">
+              Claim Pre-Order Discount
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CHECKOUT VIEW -->
+  <section id="checkout-section" class="hidden pt-32 pb-20 max-w-4xl mx-auto px-6">
+    <button onclick="showLandingView()" class="mb-6 inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 font-medium transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+      Back to Product Details
+    </button>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl">
+      <div class="space-y-6 border-b md:border-b-0 md:border-r border-slate-800 md:pr-8 pb-8 md:pb-0">
+        <h2 class="text-2xl font-bold text-white">Order Details</h2>
+        <div class="flex items-center gap-4 bg-slate-950 p-4 rounded-xl border border-slate-800">
+          <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=150&q=60" width="150" height="150" alt="Aura Glass" class="w-16 h-16 object-cover rounded-lg">
+          <div>
+            <h3 class="font-semibold text-white">Aura Glass AR Edition</h3>
+            <p class="text-xs text-slate-400">Matte Black / 256GB Storage</p>
+          </div>
+        </div>
+        <div class="space-y-3 text-sm text-slate-300">
+          <div class="flex justify-between"><span>Retail Price</span><span class="line-through text-slate-500">$699.00</span></div>
+          <div class="flex justify-between text-emerald-400 font-medium"><span>Pre-Order Discount</span><span>-$200.00</span></div>
+          <div class="flex justify-between"><span>Express Shipping</span><span class="text-emerald-400 font-medium">FREE</span></div>
+          <div class="border-t border-slate-800 pt-3 flex justify-between font-bold text-lg text-white"><span>Total Due</span><span>$499.00</span></div>
+        </div>
+      </div>
+
+      <div>
+        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Order placed successfully!');">
+          <h2 class="text-xl font-bold text-white mb-4">Shipping & Checkout</h2>
+          <div>
+            <label for="name" class="block text-xs font-semibold text-slate-300 mb-1">Full Name</label>
+            <input type="text" id="name" required placeholder="John Doe" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+          </div>
+          <div>
+            <label for="email" class="block text-xs font-semibold text-slate-300 mb-1">Email Address</label>
+            <input type="email" id="email" required placeholder="john@example.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+          </div>
+          <button type="submit" class="w-full py-4 mt-6 rounded-xl bg-gradient-to-r from-emerald-400 to-cyan-500 text-slate-950 font-bold transition-all">Complete Purchase ($499)</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FOOTER (With Contact Info & Social Media Links) -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Brand & Copyright -->
+      <div class="space-y-3">
+        <div class="flex items-center gap-2 text-lg font-bold text-white">
+          <span>AURA<span class="text-emerald-400">GLASS</span></span>
+        </div>
+        <p class="text-xs text-slate-400">Next-generation spatial computing eyewear for seamless real-time visual productivity.</p>
+        <p class="text-xs text-slate-500">© 2026 Aura Glass Inc. All rights reserved.</p>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="space-y-2 text-sm text-slate-400">
+        <h4 class="text-white font-semibold text-base mb-3">Contact Us</h4>
+        <p>Email: <a href="mailto:support@auraglass.com" class="hover:text-emerald-400">support@auraglass.com</a></p>
+        <p>Phone: +1 (800) 555-AURA</p>
+        <p>Location: San Francisco, CA</p>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="space-y-3">
+        <h4 class="text-white font-semibold text-base">Follow Us</h4>
+        <div class="flex items-center gap-4 text-slate-400">
+          <a href="#" class="hover:text-emerald-400 transition-colors" aria-label="Twitter/X">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="hover:text-emerald-400 transition-colors" aria-label="GitHub">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <a href="#" class="hover:text-emerald-400 transition-colors" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT CONTROLLERS -->
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    function showCheckoutSection() {
+      document.getElementById('landing-content').classList.add('hidden');
+      document.getElementById('checkout-section').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showLandingView() {
+      document.getElementById('checkout-section').classList.add('hidden');
+      document.getElementById('landing-content').classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
